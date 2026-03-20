@@ -16,7 +16,7 @@ const EventAttendees = () => {
             const token = localStorage.getItem('token');
             try {
                 // Fetch attendees (Ticket objects)
-                const response = await axios.get(`http://127.0.0.1:8000/api/events/attendees/${id}/`, {
+                const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/events/attendees/${id}/`, {
                     headers: { 'Authorization': `Token ${token}` }
                 });
                 setAttendees(response.data);

@@ -23,7 +23,7 @@ const Chatbot = () => {
         try {
             // Clean up query if they said "all"
             const searchQuery = query === 'all' ? '' : query;
-            const response = await axios.get(`http://127.0.0.1:8000/api/events/public/?search=${searchQuery}`);
+            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/events/public/?search=${searchQuery}`);
             const events = response.data;
             if (events.length > 0) {
                 const links = events.slice(0, 3).map(e => ({ url: `/event-details/${e.id}`, text: e.title }));

@@ -22,7 +22,7 @@ const Reports = () => {
 
         try {
             // Try Admin fetch
-            const adminRes = await axios.get('http://127.0.0.1:8000/api/analytics/admin/', {
+            const adminRes = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/analytics/admin/`, {
                 headers: { 'Authorization': `Token ${token}` }
             });
             setAdminData(adminRes.data);
@@ -30,7 +30,7 @@ const Reports = () => {
         } catch (err) {
             // If admin fails, try Organizer
             try {
-                const orgRes = await axios.get('http://127.0.0.1:8000/api/analytics/organizer/', {
+                const orgRes = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/analytics/organizer/`, {
                     headers: { 'Authorization': `Token ${token}` }
                 });
                 setOrganizerData(orgRes.data);
@@ -48,7 +48,7 @@ const Reports = () => {
         if (!token) return;
 
         try {
-            const res = await axios.get(`http://127.0.0.1:8000/api/analytics/${endpoint}`, {
+            const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/analytics/${endpoint}`, {
                 headers: { 'Authorization': `Token ${token}` },
                 responseType: 'blob', // Important for downloading files
             });

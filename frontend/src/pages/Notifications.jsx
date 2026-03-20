@@ -12,7 +12,7 @@ const Notifications = () => {
     const fetchNotifications = async () => {
         const token = localStorage.getItem('token');
         try {
-            const response = await axios.get('http://127.0.0.1:8000/api/core/notifications/', {
+            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/core/notifications/`, {
                 headers: { 'Authorization': `Token ${token}` }
             });
             setNotifications(response.data);
@@ -26,7 +26,7 @@ const Notifications = () => {
     const markAllRead = async () => {
         const token = localStorage.getItem('token');
         try {
-            await axios.post('http://127.0.0.1:8000/api/core/notifications/mark-all-read/', {}, {
+            await axios.post(`${import.meta.env.VITE_API_BASE_URL}/core/notifications/mark-all-read/`, {}, {
                 headers: { 'Authorization': `Token ${token}` }
             });
             setNotifications(notifications.map(n => ({ ...n, is_read: true })));
@@ -39,7 +39,7 @@ const Notifications = () => {
         if (isRead) return;
         const token = localStorage.getItem('token');
         try {
-            await axios.post(`http://127.0.0.1:8000/api/core/notifications/${id}/read/`, {}, {
+            await axios.post(`${import.meta.env.VITE_API_BASE_URL}/core/notifications/${id}/read/`, {}, {
                 headers: { 'Authorization': `Token ${token}` }
             });
             setNotifications(notifications.map(n => n.id === id ? { ...n, is_read: true } : n));

@@ -29,7 +29,7 @@ const MemoryBook = () => {
     const fetchEventData = async () => {
         try {
             const headers = token ? { 'Authorization': `Token ${token}` } : {};
-            const response = await axios.get(`http://127.0.0.1:8000/api/events/${id}/`, { headers });
+            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/events/${id}/`, { headers });
             setEvent(response.data);
             setLoading(false);
         } catch (err) {
@@ -50,7 +50,7 @@ const MemoryBook = () => {
 
         setUploading(true);
         try {
-            await axios.post('http://127.0.0.1:8000/api/events/memory/create/', formData, {
+            await axios.post(`${import.meta.env.VITE_API_BASE_URL}/events/memory/create/`, formData, {
                 headers: {
                     'Authorization': `Token ${token}`,
                     'Content-Type': 'multipart/form-data'
@@ -73,7 +73,7 @@ const MemoryBook = () => {
 
         setSubmittingComment(true);
         try {
-            await axios.post('http://127.0.0.1:8000/api/events/memory/comment/', {
+            await axios.post(`${import.meta.env.VITE_API_BASE_URL}/events/memory/comment/`, {
                 event: id,
                 comment: commentText
             }, {

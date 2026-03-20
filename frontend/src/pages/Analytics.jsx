@@ -19,8 +19,8 @@ const Analytics = () => {
             setIsOrganizer(isOrg);
 
             const endpoint = isOrg
-                ? 'http://127.0.0.1:8000/api/analytics/organizer/'
-                : 'http://127.0.0.1:8000/api/analytics/system/';
+                ? `${import.meta.env.VITE_API_BASE_URL}/analytics/organizer/`
+                : `${import.meta.env.VITE_API_BASE_URL}/analytics/system/`;
 
             try {
                 const response = await axios.get(endpoint, {

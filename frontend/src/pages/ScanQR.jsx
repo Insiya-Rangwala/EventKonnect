@@ -50,7 +50,7 @@ const ScanQR = () => {
             if (ticketId) payload.ticket_id = ticketId;
             if (verificationCode) payload.verification_code = verificationCode;
 
-            const response = await axios.post('http://127.0.0.1:8000/api/tickets/verify/', 
+            const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/tickets/verify/`, 
                 payload,
                 { headers: { 'Authorization': `Token ${token}` } }
             );

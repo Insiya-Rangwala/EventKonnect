@@ -17,7 +17,7 @@ const ManageUsers = () => {
     const fetchUsers = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://127.0.0.1:8000/api/users/manage/', {
+            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/users/manage/`, {
                 headers: { Authorization: `Token ${token}` }
             });
             setUsers(response.data);
@@ -31,7 +31,7 @@ const ManageUsers = () => {
     const handleBlockToggle = async (userId, currentStatus) => {
         try {
             const token = localStorage.getItem('token');
-            await axios.patch(`http://127.0.0.1:8000/api/users/status/${userId}/`,
+            await axios.patch(`${import.meta.env.VITE_API_BASE_URL}/users/status/${userId}/`,
                 { is_active: !currentStatus },
                 { headers: { Authorization: `Token ${token}` } }
             );
@@ -44,7 +44,7 @@ const ManageUsers = () => {
     const handleRoleChange = async (userId, newRole) => {
         try {
             const token = localStorage.getItem('token');
-            await axios.patch(`http://127.0.0.1:8000/api/users/role/${userId}/`,
+            await axios.patch(`${import.meta.env.VITE_API_BASE_URL}/users/role/${userId}/`,
                 { role: newRole },
                 { headers: { Authorization: `Token ${token}` } }
             );

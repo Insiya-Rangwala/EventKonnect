@@ -22,7 +22,7 @@ const CreateEvent = () => {
     React.useEffect(() => {
         const fetchColleges = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:8000/api/users/colleges/');
+                const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/users/colleges/`);
                 setColleges(response.data);
             } catch (err) {
                 console.error("Failed to load colleges", err);
@@ -87,7 +87,7 @@ const CreateEvent = () => {
         }
 
         try {
-            await axios.post('http://127.0.0.1:8000/api/events/create/', data, {
+            await axios.post(`${import.meta.env.VITE_API_BASE_URL}/events/create/`, data, {
                 headers: {
                     'Authorization': `Token ${token}`,
                     'Content-Type': 'multipart/form-data',

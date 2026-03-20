@@ -15,7 +15,7 @@ const AdminEvents = () => {
     const fetchEvents = async () => {
         const token = localStorage.getItem('token');
         try {
-            const response = await axios.get('http://127.0.0.1:8000/api/events/all/', {
+            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/events/all/`, {
                 headers: { 'Authorization': `Token ${token}` }
             });
             const data = response.data;
@@ -48,7 +48,7 @@ const AdminEvents = () => {
 
         const token = localStorage.getItem('token');
         try {
-            await axios.post(`http://127.0.0.1:8000/api/events/approve/${id}/`,
+            await axios.post(`${import.meta.env.VITE_API_BASE_URL}/events/approve/${id}/`,
                 { action, reason },
                 { headers: { 'Authorization': `Token ${token}` } }
             );

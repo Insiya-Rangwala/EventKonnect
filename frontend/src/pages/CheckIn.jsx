@@ -19,7 +19,7 @@ const CheckIn = () => {
                 // Let's assume Organizers can see their own events from a generic events endpoint or my-events.
                 // We will just fetch the dashboard summary which has recent events, or 'my-events'.
                 // Wait, what endpoint does OrganizerDashboard use? It uses `/api/events/`.
-                const response = await axios.get('http://127.0.0.1:8000/api/events/', {
+                const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/events/`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 // Filter events where user is organizer
@@ -42,7 +42,7 @@ const CheckIn = () => {
 
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.post('http://127.0.0.1:8000/api/tickets/verify/',
+            const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/tickets/verify/`,
                 { verification_code: verificationCode },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -89,7 +89,7 @@ const CheckIn = () => {
         try {
             const token = localStorage.getItem('token');
             const payload = code ? { verification_code: code } : { ticket_id: ticketId };
-            const response = await axios.post('http://127.0.0.1:8000/api/tickets/verify/',
+            const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/tickets/verify/`,
                 payload,
                 { headers: { Authorization: `Bearer ${token}` } }
             );

@@ -11,7 +11,7 @@ const Home = () => {
     useEffect(() => {
         const fetchFeatured = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:8000/api/events/public/?sort=upcoming');
+                const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/events/public/?sort=upcoming`);
                 // Get top 3 upcoming events
                 setFeaturedEvents(response.data.slice(0, 3));
             } catch (err) {

@@ -19,7 +19,7 @@ const TicketView = () => {
         if (!token) return;
 
         try {
-            const response = await axios.get('http://127.0.0.1:8000/api/tickets/my-tickets/', {
+            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/tickets/my-tickets/`, {
                 headers: { 'Authorization': `Token ${token}` }
             });
             setTickets(response.data);
@@ -42,7 +42,7 @@ const TicketView = () => {
         if (!window.confirm("Are you sure you want to cancel this ticket? The system cancellation policy will apply.")) return;
         const token = localStorage.getItem('token');
         try {
-            const response = await axios.post(`http://127.0.0.1:8000/api/tickets/cancel/${ticketId}/`, {}, {
+            const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/tickets/cancel/${ticketId}/`, {}, {
                 headers: { 'Authorization': `Token ${token}` }
             });
             toast.success(response.data.message);

@@ -21,7 +21,7 @@ const Feedback = () => {
         try {
             // Fetch user's tickets to find attended events
             // In a real app, backend should provide a "pending_feedback" endpoint
-            const response = await axios.get('http://127.0.0.1:8000/api/tickets/my-tickets/', {
+            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/tickets/my-tickets/`, {
                 headers: { 'Authorization': `Token ${token}` }
             });
             // Filter tickets that are not cancelled (and optionally 'used' if we enforce check-in)
@@ -40,7 +40,7 @@ const Feedback = () => {
         if (!formData.eventId) return;
 
         try {
-            await axios.post('http://127.0.0.1:8000/api/feedback/create/',
+            await axios.post(`${import.meta.env.VITE_API_BASE_URL}/feedback/create/`,
                 {
                     event: formData.eventId,
                     rating: formData.rating,

@@ -49,7 +49,7 @@ const Profile = () => {
         }
 
         try {
-            const response = await axios.get('http://127.0.0.1:8000/api/users/profile/', {
+            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/users/profile/`, {
                 headers: { 'Authorization': `Token ${token}` }
             });
 
@@ -137,7 +137,7 @@ const Profile = () => {
                 formData.append('avatar_url', selectedAvatarUrl);
             }
 
-            await axios.patch('http://127.0.0.1:8000/api/users/profile/', formData, {
+            await axios.patch(`${import.meta.env.VITE_API_BASE_URL}/users/profile/`, formData, {
                 headers: { 
                     'Authorization': `Token ${token}`,
                     'Content-Type': 'multipart/form-data'
@@ -166,7 +166,7 @@ const Profile = () => {
     const handleChangePassword = async () => {
         const token = localStorage.getItem('token');
         try {
-            await axios.post('http://127.0.0.1:8000/api/users/change-password/', passwordData, {
+            await axios.post(`${import.meta.env.VITE_API_BASE_URL}/users/change-password/`, passwordData, {
                 headers: { 'Authorization': `Token ${token}` }
             });
             setMsg("Password changed successfully!");

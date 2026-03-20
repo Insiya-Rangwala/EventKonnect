@@ -18,7 +18,7 @@ const MyEvents = () => {
         if (!token) return;
 
         try {
-            const response = await axios.get('http://127.0.0.1:8000/api/events/my-events/', {
+            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/events/my-events/`, {
                 headers: { 'Authorization': `Token ${token}` }
             });
             setEvents(response.data);
@@ -33,7 +33,7 @@ const MyEvents = () => {
         if (!window.confirm("Are you sure you want to cancel (delete) this event? This action cannot be undone.")) return;
         const token = localStorage.getItem('token');
         try {
-            await axios.delete(`http://127.0.0.1:8000/api/events/${id}/`, {
+            await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/events/${id}/`, {
                 headers: { 'Authorization': `Token ${token}` }
             });
             setEvents(events.filter(e => e.id !== id));
@@ -48,7 +48,7 @@ const MyEvents = () => {
         if (!window.confirm("Are you sure you want to mark this event as completed? This will enable the Memory Book.")) return;
         const token = localStorage.getItem('token');
         try {
-            await axios.post(`http://127.0.0.1:8000/api/events/complete/${id}/`, {}, {
+            await axios.post(`${import.meta.env.VITE_API_BASE_URL}/events/complete/${id}/`, {}, {
                 headers: { 'Authorization': `Token ${token}` }
             });
             setEvents(events.map(e => e.id === id ? { ...e, status: 'completed' } : e));

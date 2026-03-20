@@ -27,7 +27,7 @@ const Registrations = () => {
                 // It does NOT send check-in count PER EVENT. 
                 // We should update backend to include check-in count per event.
 
-                const response = await axios.get('http://127.0.0.1:8000/api/analytics/organizer/', {
+                const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/analytics/organizer/`, {
                     headers: { 'Authorization': `Token ${token}` }
                 });
                 setStats(response.data);

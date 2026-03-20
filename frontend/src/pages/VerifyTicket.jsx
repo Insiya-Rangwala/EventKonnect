@@ -14,7 +14,7 @@ const VerifyTicket = () => {
 
         const token = localStorage.getItem('token');
         try {
-            const response = await axios.post('http://127.0.0.1:8000/api/tickets/verify/',
+            const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/tickets/verify/`,
                 { ticket_id: ticketId },
                 { headers: { 'Authorization': `Token ${token}` } }
             );

@@ -19,7 +19,7 @@ const EventDetails = () => {
         const token = localStorage.getItem('token');
         const headers = token ? { 'Authorization': `Token ${token}` } : {};
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/api/events/${id}/`, { headers });
+            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/events/${id}/`, { headers });
             setEvent(response.data);
         } catch (err) {
             console.error("Failed to fetch event details", err);
@@ -40,7 +40,7 @@ const EventDetails = () => {
 
         setRegistering(true);
         try {
-            await axios.post('http://127.0.0.1:8000/api/tickets/book/',
+            await axios.post(`${import.meta.env.VITE_API_BASE_URL}/tickets/book/`,
                 { event: event.id },
                 { headers: { 'Authorization': `Token ${token}` } }
             );

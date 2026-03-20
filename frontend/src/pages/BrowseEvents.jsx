@@ -34,7 +34,7 @@ const BrowseEvents = () => {
                 if (token) headers['Authorization'] = `Token ${token}`;
             }
 
-            const response = await axios.get(`http://127.0.0.1:8000/api/events/public/?${params.toString()}`, { headers });
+            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/events/public/?${params.toString()}`, { headers });
             setEvents(response.data);
         } catch (err) {
             console.error("Failed to fetch events", err);

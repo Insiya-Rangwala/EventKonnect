@@ -31,8 +31,8 @@ const Auth = () => {
         const fetchDependencies = async () => {
             try {
                 const [collegesRes, settingsRes] = await Promise.all([
-                    axios.get('http://127.0.0.1:8000/api/users/colleges/'),
-                    axios.get('http://127.0.0.1:8000/api/core/settings/')
+                    axios.get(`${import.meta.env.VITE_API_BASE_URL}/users/colleges/`),
+                    axios.get(`${import.meta.env.VITE_API_BASE_URL}/core/settings/`)
                 ]);
                 setColleges(collegesRes.data);
                 setSystemSettings(settingsRes.data);
@@ -77,7 +77,7 @@ const Auth = () => {
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://127.0.0.1:8000/api/users/login/', {
+            const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/users/login/`, {
                 username: loginData.email,
                 password: loginData.password
             });
@@ -130,7 +130,7 @@ const Auth = () => {
                 payload.college_id = parseInt(registerData.college_id, 10);
             }
 
-            const response = await axios.post('http://127.0.0.1:8000/api/users/register/', payload);
+            const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/users/register/`, payload);
             console.log("Registration success", response.data);
 
             // On successful registration, slide back to login to force sign in for security
@@ -168,7 +168,7 @@ const Auth = () => {
 
     const handleGoogleSuccess = async (credentialResponse, roleIfNew = 'attendee') => {
         try {
-            const response = await axios.post('http://127.0.0.1:8000/api/users/google-login/', {
+            const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/users/google-login/`, {
                 token: credentialResponse.credential,
                 role: roleIfNew
             });

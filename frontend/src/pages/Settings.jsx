@@ -21,7 +21,7 @@ const Settings = () => {
         const fetchSettings = async () => {
             const token = localStorage.getItem('token');
             try {
-                const response = await axios.get('http://127.0.0.1:8000/api/core/settings/', {
+                const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/core/settings/`, {
                     headers: { 'Authorization': `Token ${token}` }
                 });
                 setSettings(response.data);
@@ -33,7 +33,7 @@ const Settings = () => {
         };
         const fetchColleges = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:8000/api/users/colleges/');
+                const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/users/colleges/`);
                 setColleges(response.data);
             } catch (err) {
                 console.error("Failed to load colleges", err);
@@ -47,7 +47,7 @@ const Settings = () => {
         if (!newCollege.name || !newCollege.email_domain) return alert('Name and domain required');
         const token = localStorage.getItem('token');
         try {
-            const res = await axios.post('http://127.0.0.1:8000/api/users/colleges/', newCollege, {
+            const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/users/colleges/`, newCollege, {
                 headers: { 'Authorization': `Token ${token}` }
             });
             setColleges([...colleges, res.data]);
@@ -62,7 +62,7 @@ const Settings = () => {
         if (!window.confirm("Delete this college?")) return;
         const token = localStorage.getItem('token');
         try {
-            await axios.delete(`http://127.0.0.1:8000/api/users/colleges/${id}/`, {
+            await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/users/colleges/${id}/`, {
                 headers: { 'Authorization': `Token ${token}` }
             });
             setColleges(colleges.filter(c => c.id !== id));
@@ -80,7 +80,7 @@ const Settings = () => {
     const handleSave = async () => {
         const token = localStorage.getItem('token');
         try {
-            await axios.put('http://127.0.0.1:8000/api/core/settings/', settings, {
+            await axios.put(`${import.meta.env.VITE_API_BASE_URL}/core/settings/`, settings, {
                 headers: { 'Authorization': `Token ${token}` }
             });
             alert("Settings saved successfully!");

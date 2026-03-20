@@ -10,7 +10,7 @@ const ForgotPassword = () => {
         e.preventDefault();
         try {
             // Using standard Django URL
-            await axios.post('http://127.0.0.1:8000/api/users/forgot-password/', { email });
+            await axios.post(`${import.meta.env.VITE_API_BASE_URL}/users/forgot-password/`, { email });
             // For security, checking user existence should be silent, so we show success regardless
             setSubmitted(true);
         } catch (err) {

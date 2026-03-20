@@ -12,7 +12,7 @@ const AdminDashboard = () => {
         const fetchStats = async () => {
             const token = localStorage.getItem('token');
             try {
-                const response = await axios.get('http://127.0.0.1:8000/api/analytics/admin/', {
+                const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/analytics/admin/`, {
                     headers: { 'Authorization': `Token ${token}` }
                 });
                 setStats(response.data);

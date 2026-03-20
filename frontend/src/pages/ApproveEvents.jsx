@@ -14,7 +14,7 @@ const ApproveEvents = () => {
     const fetchEvents = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://127.0.0.1:8000/api/events/all/', {
+            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/events/all/`, {
                 headers: { Authorization: `Token ${token}` }
             });
             // Filter only pending events
@@ -36,7 +36,7 @@ const ApproveEvents = () => {
 
         try {
             const token = localStorage.getItem('token');
-            await axios.post(`http://127.0.0.1:8000/api/events/approve/${eventId}/`,
+            await axios.post(`${import.meta.env.VITE_API_BASE_URL}/events/approve/${eventId}/`,
                 { action, reason },
                 { headers: { Authorization: `Token ${token}` } }
             );
