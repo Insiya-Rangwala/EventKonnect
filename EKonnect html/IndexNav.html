@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventKonnect - Demo Navigation</title>
+    <style>
+        :root {
+            --primary: #FF6B35;
+            --secondary: #F7931E;
+            --warm-bg: #FFF5E4;
+            --dark: #2C2C2C;
+        }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--warm-bg); padding: 2rem; color: var(--dark); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .section { background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        h1 { text-align: center; color: var(--primary); margin-bottom: 3rem; }
+        h2 { border-bottom: 2px solid var(--primary); padding-bottom: 10px; margin-bottom: 1rem; }
+        ul { list-style: none; padding: 0; }
+        li { margin-bottom: 10px; }
+        a { text-decoration: none; color: var(--dark); font-weight: 500; transition: color 0.3s; }
+        a:hover { color: var(--primary); }
+        .badge { background: var(--secondary); color: white; padding: 2px 8px; border-radius: 10px; font-size: 0.7rem; margin-left: 5px; }
+    </style>
+</head>
+<body>
+    <h1>EventKonnect Demo Sitemap</h1>
+    <div class="grid">
+        <div class="section">
+            <h2>Public Pages</h2>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="About.html">About Us</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li><a href="Login.html">Login</a></li>
+                <li><a href="Register.html">Register</a></li>
+                <li><a href="Chatbot.html">AI Chatbot <span class="badge">AI</span></a></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Admin Dashboard</h2>
+            <ul>
+                <li><a href="AdminDashboard.html">Dashboard Overview</a></li>
+                <li><a href="ManageUsers.html">Manage Users</a></li>
+                <li><a href="ApproveEvents.html">Approve Events</a></li>
+                <li><a href="AllEvents.html">Global Event List</a></li>
+                <li><a href="Reports.html">Generate Reports</a></li>
+                <li><a href="Analytics.html">System Analytics</a></li>
+                <li><a href="Settings.html">Settings</a></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Organizer Dashboard</h2>
+            <ul>
+                <li><a href="OrganizerDashboard.html">Organizer Home</a></li>
+                <li><a href="CreateEvent.html">Create Event</a></li>
+                <li><a href="EditEvent.html">Edit Event</a></li>
+                <li><a href="MyEvents.html">Manage My Events</a></li>
+                <li><a href="Registrations.html">Registration Tracking</a></li>
+                <li><a href="EventAnalytics.html">Event Insights</a></li>
+                <li><a href="MemoryBook.html">Digital Memory Book</a></li>
+                <li><a href="OrganizerProfile.html">Profile</a></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Attendee Dashboard</h2>
+            <ul>
+                <li><a href="AttendeeDashboard.html">User Dashboard</a></li>
+                <li><a href="BrowseEvents.html">Event Gallery</a></li>
+                <li><a href="EventDetails.html">Event Details & Map</a></li>
+                <li><a href="MyTickets.html">My Tickets</a></li>
+                <li><a href="TicketView.html">QR Ticket View <span class="badge">QR</span></a></li>
+                <li><a href="Feedback.html">Submit Feedback</a></li>
+                <li><a href="Notifications.html">Alerts</a></li>
+                <li><a href="UserProfile.html">Account Settings</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

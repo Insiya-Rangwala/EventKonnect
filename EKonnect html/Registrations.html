@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrations - Organizer</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        :root { --primary: #FF6B35; --dark: #2C2C2C; --sidebar-w: 260px; }
+        body { font-family: 'Segoe UI', sans-serif; background: #FFF5E4; display: flex; }
+        .sidebar { width: var(--sidebar-w); background: var(--dark); height: 100vh; position: fixed; color: white; padding: 2rem 1rem; }
+        .main { margin-left: var(--sidebar-w); flex-grow: 1; padding: 2rem; }
+        .list-item { background: white; padding: 1rem; border-radius: 10px; margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .check-in { color: #4CAF50; font-weight: bold; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <div class="sidebar"><h2>EventKonnect</h2><a href="OrganizerDashboard.html" style="color:white;text-decoration:none;">Dashboard</a></div>
+    <div class="main">
+        <h1>Registration Tracking</h1>
+        <p style="margin-bottom: 2rem;">Event: <strong>Tech Symposium 2026</strong></p>
+        <div class="list-item">
+            <div><strong>Rahul Sharma</strong><br><small>rahul.s@hcollege.edu</small></div>
+            <div class="check-in">✓ Checked In</div>
+        </div>
+        <div class="list-item">
+            <div><strong>Anjali Mehta</strong><br><small>anjali.m@hcollege.edu</small></div>
+            <div style="color: #888;">Pending</div>
+        </div>
+    </div>
+</body>
+</html>

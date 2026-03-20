@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Memory Book - Organizer</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        :root { --primary: #FF6B35; --dark: #2C2C2C; --sidebar-w: 260px; }
+        body { font-family: 'Segoe UI', sans-serif; background: #FFF5E4; display: flex; }
+        .sidebar { width: var(--sidebar-w); background: var(--dark); height: 100vh; position: fixed; color: white; padding: 2rem 1rem; }
+        .main { margin-left: var(--sidebar-w); flex-grow: 1; padding: 2rem; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; }
+        .photo-slot { aspect-ratio: 1; background: white; border-radius: 15px; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; color: #aaa; cursor: pointer; overflow: hidden; }
+        .photo-slot img { width: 100%; height: 100%; object-fit: cover; }
+    </style>
+</head>
+<body>
+    <div class="sidebar"><h2>EventKonnect</h2><a href="OrganizerDashboard.html" style="color:white;text-decoration:none;">Dashboard</a></div>
+    <div class="main">
+        <h1>Digital Memory Book</h1>
+        <p style="margin-bottom: 2rem;">Upload highlights from your finished events.</p>
+        <div class="gallery">
+            <div class="photo-slot"><img src="" alt="Memory"></div>
+            <div class="photo-slot"><img src="" alt="Memory"></div>
+            <div class="photo-slot">+ Add Photo</div>
+        </div>
+        <button style="margin-top: 2rem; background: var(--primary); color: white; border: none; padding: 15px 30px; border-radius: 10px; cursor: pointer;">Generate Final Book (PDF)</button>
+    </div>
+</body>
+</html>

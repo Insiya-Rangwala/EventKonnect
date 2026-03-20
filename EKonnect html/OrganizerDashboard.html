@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Organizer Dashboard - EventKonnect</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        :root { --primary: #FF6B35; --secondary: #F7931E; --warm-bg: #FFF5E4; --dark: #2C2C2C; --sidebar-w: 260px; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--warm-bg); display: flex; }
+        .sidebar { width: var(--sidebar-w); background: var(--dark); height: 100vh; position: fixed; color: white; padding: 2rem 1rem; }
+        .nav-item { display: block; padding: 12px 15px; color: #ccc; text-decoration: none; border-radius: 10px; margin-bottom: 5px; }
+        .nav-item.active { background: var(--primary); color: white; }
+        .main { margin-left: var(--sidebar-w); flex-grow: 1; padding: 2rem; }
+        
+        .btn-create { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border: none; padding: 12px 25px; border-radius: 10px; cursor: pointer; font-weight: bold; margin-bottom: 2rem; }
+        .event-strip { background: white; padding: 1rem 1.5rem; border-radius: 12px; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+        .stats-mini { font-size: 0.8rem; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>EventKonnect</h2>
+        <a href="OrganizerDashboard.html" class="nav-item active">Dashboard</a>
+        <a href="CreateEvent.html" class="nav-item">Create Event</a>
+        <a href="MyEvents.html" class="nav-item">My Events</a>
+        <a href="Registrations.html" class="nav-item">Registrations</a>
+        <a href="EventAnalytics.html" class="nav-item">Analytics</a>
+        <a href="MemoryBook.html" class="nav-item">Memory Book</a>
+        <a href="OrganizerProfile.html" class="nav-item">Profile</a>
+    </div>
+    <div class="main">
+        <h1>Welcome, Organizer</h1>
+        <p style="margin-bottom: 2rem;">Ready to host your next big event?</p>
+        
+        <button class="btn-create" onclick="window.location.href='CreateEvent.html'">+ Create New Event</button>
+        
+        <div class="card-grid" style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem;">
+            <div style="background:white; padding:1.5rem; border-radius:15px;">
+                <h3 style="font-size:0.8rem; color:#666;">Total Registrations</h3>
+                <div style="font-size:1.5rem; font-weight:bold;">458</div>
+            </div>
+            <div style="background:white; padding:1.5rem; border-radius:15px;">
+                <h3 style="font-size:0.8rem; color:#666;">Average Rating</h3>
+                <div style="font-size:1.5rem; font-weight:bold;">4.8 ⭐</div>
+            </div>
+            <div style="background:white; padding:1.5rem; border-radius:15px;">
+                <h3 style="font-size:0.8rem; color:#666;">Upcoming Events</h3>
+                <div style="font-size:1.5rem; font-weight:bold;">3</div>
+            </div>
+        </div>
+
+        <h3>Your Recent Events</h3>
+        <div style="margin-top: 1rem;">
+            <div class="event-strip">
+                <div>
+                    <strong>Tech Symposium 2026</strong>
+                    <div class="stats-mini">Feb 20 | Auditorium | 150 Registered</div>
+                </div>
+                <button style="border:1px solid var(--primary); background:none; color:var(--primary); padding:5px 10px; border-radius:5px; cursor:pointer;" onclick="window.location.href='EditEvent.html'">Edit</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

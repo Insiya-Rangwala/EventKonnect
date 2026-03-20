@@ -1,0 +1,5 @@
+django==6.0.1
+djangorestframework
+django-cors-headers
+qrcode
+Pillow

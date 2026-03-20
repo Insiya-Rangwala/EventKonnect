@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Event - Organizer</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        :root { --primary: #FF6B35; --secondary: #F7931E; --warm-bg: #FFF5E4; --dark: #2C2C2C; --sidebar-w: 260px; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--warm-bg); display: flex; }
+        .sidebar { width: var(--sidebar-w); background: var(--dark); height: 100vh; position: fixed; color: white; padding: 2rem 1rem; }
+        .nav-item { display: block; padding: 12px 15px; color: #ccc; text-decoration: none; border-radius: 10px; margin-bottom: 5px; }
+        .nav-item.active { background: var(--primary); color: white; }
+        .main { margin-left: var(--sidebar-w); flex-grow: 1; padding: 2rem; }
+        
+        .form-card { background: white; padding: 2rem; border-radius: 20px; max-width: 800px; margin: 0 auto; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 1.5rem; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+        input, textarea, select { width: 100%; padding: 0.8rem; border: 2px solid #eee; border-radius: 10px; outline: none; }
+        input:focus { border-color: var(--primary); }
+        .btn-submit { width: 100%; background: var(--primary); color: white; border: none; padding: 1rem; border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>EventKonnect</h2>
+        <a href="OrganizerDashboard.html" class="nav-item">Dashboard</a>
+        <a href="CreateEvent.html" class="nav-item active">Create Event</a>
+        <a href="MyEvents.html" class="nav-item">My Events</a>
+        <a href="Registrations.html" class="nav-item">Registrations</a>
+        <a href="EventAnalytics.html" class="nav-item">Analytics</a>
+        <a href="MemoryBook.html" class="nav-item">Memory Book</a>
+    </div>
+    <div class="main">
+        <h1 style="text-align: center; margin-bottom: 2rem;">Post a New Event</h1>
+        <div class="form-card">
+            <form>
+                <div class="form-group">
+                    <label>Event Title</label>
+                    <input type="text" placeholder="e.g. Annual Hackathon 2026">
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date">
+                    </div>
+                    <div class="form-group">
+                        <label>Venue</label>
+                        <input type="text" placeholder="Building/Room No.">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea rows="4" placeholder="Tell attendees what to expect..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Capacity</label>
+                    <input type="number" placeholder="Max attendees">
+                </div>
+                <div class="form-group">
+                    <label>College Mode</label>
+                    <select>
+                        <option>Enable (Manual Verification Required)</option>
+                        <option>Disable (Public Event)</option>
+                    </select>
+                </div>
+                <button type="button" class="btn-submit" onclick="alert('Event submitted for Admin approval!')">Submit for Approval</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

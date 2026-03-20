@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Attendee Dashboard - EventKonnect</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        :root { --primary: #FF6B35; --secondary: #F7931E; --warm-bg: #FFF5E4; --dark: #2C2C2C; --sidebar-w: 260px; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--warm-bg); display: flex; }
+        .sidebar { width: var(--sidebar-w); background: var(--dark); height: 100vh; position: fixed; color: white; padding: 2rem 1rem; }
+        .nav-item { display: block; padding: 12px 15px; color: #ccc; text-decoration: none; border-radius: 10px; margin-bottom: 5px; }
+        .nav-item.active { background: var(--primary); color: white; }
+        .main { margin-left: var(--sidebar-w); flex-grow: 1; padding: 2rem; }
+        
+        .ticket-mini { background: white; padding: 1.5rem; border-radius: 15px; border-left: 5px solid var(--primary); display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+        .event-card-browse { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .event-img { height: 100px; background: var(--primary); }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>EventKonnect</h2>
+        <a href="AttendeeDashboard.html" class="nav-item active">My Dashboard</a>
+        <a href="BrowseEvents.html" class="nav-item">Browse Events</a>
+        <a href="MyTickets.html" class="nav-item">My Tickets</a>
+        <a href="Notifications.html" class="nav-item">Notifications</a>
+        <a href="Feedback.html" class="nav-item">Feedback</a>
+        <a href="UserProfile.html" class="nav-item">My Profile</a>
+    </div>
+    <div class="main">
+        <h1>Hello, Attendee! 👋</h1>
+        <p style="margin-bottom: 2rem;">Discover what's happening today.</p>
+
+        <h3>Your Upcoming Tickets</h3>
+        <div style="margin-top: 1rem; margin-bottom: 3rem;">
+            <div class="ticket-mini">
+                <div>
+                    <strong>Tech Symposium 2026</strong>
+                    <p style="font-size: 0.8rem; color: #666;">Feb 20 | Seat: A-12</p>
+                </div>
+                <button style="background:var(--primary); color:white; border:none; padding:8px 15px; border-radius:5px; cursor:pointer;" onclick="window.location.href='TicketView.html'">View QR</button>
+            </div>
+        </div>
+
+        <h3>Recommended For You</h3>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 1rem;">
+            <div class="event-card-browse">
+                <div class="event-img"></div>
+                <div style="padding:1rem;">
+                    <strong>AI Workshop</strong>
+                    <p style="font-size:0.7rem; color:#666; margin-top:5px;">Join us to explore the future of GPT.</p>
+                </div>
+            </div>
+            <div class="event-card-browse">
+                <div class="event-img" style="background:var(--secondary);"></div>
+                <div style="padding:1rem;">
+                    <strong>Arts Gala</strong>
+                    <p style="font-size:0.7rem; color:#666; margin-top:5px;">A night of music and painting.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

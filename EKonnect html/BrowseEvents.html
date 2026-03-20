@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Browse Events - EventKonnect</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        :root { --primary: #FF6B35; --sidebar-w: 260px; }
+        body { font-family: 'Segoe UI', sans-serif; background: #FFF5E4; display: flex; }
+        .sidebar { width: var(--sidebar-w); background: #2C2C2C; height: 100vh; position: fixed; color: white; padding: 2rem 1rem; }
+        .main { margin-left: var(--sidebar-w); flex-grow: 1; padding: 2rem; }
+        .filter-bar { display: flex; gap: 1rem; margin-bottom: 2rem; }
+        .filter-bar input { padding: 10px; border-radius: 10px; border: 1px solid #ddd; flex-grow: 1; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; }
+        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); cursor: pointer; }
+        .card-img { height: 120px; background: var(--primary); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
+        .card-body { padding: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="sidebar"><h2>EventKonnect</h2><a href="AttendeeDashboard.html" style="color:white;text-decoration:none;">Dashboard</a></div>
+    <div class="main">
+        <h1>Event Gallery</h1>
+        <div class="filter-bar">
+            <input type="text" placeholder="Search by name or category...">
+            <button style="background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 10px;">Filter</button>
+        </div>
+        <div class="grid">
+            <div class="card" onclick="window.location.href='EventDetails.html'">
+                <div class="card-img">Workshop</div>
+                <div class="card-body"><strong>AI for Students</strong><br><small>Feb 28 | Lab 102</small></div>
+            </div>
+            <div class="card" onclick="window.location.href='EventDetails.html'">
+                <div class="card-img" style="background: #F7931E;">Seminar</div>
+                <div class="card-body"><strong>Career Talk 2026</strong><br><small>Mar 05 | Auditorium</small></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

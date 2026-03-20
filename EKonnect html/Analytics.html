@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analytics - Admin</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        :root { --primary: #FF6B35; --dark: #2C2C2C; --sidebar-w: 260px; }
+        body { font-family: 'Segoe UI', sans-serif; background: #FFF5E4; display: flex; }
+        .sidebar { width: var(--sidebar-w); background: var(--dark); height: 100vh; position: fixed; color: white; padding: 2rem 1rem; }
+        .main { margin-left: var(--sidebar-w); flex-grow: 1; padding: 2rem; }
+        .chart-box { background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 2rem; }
+        .bar-container { display: flex; align-items: flex-end; gap: 10px; height: 200px; padding-top: 20px; }
+        .bar { background: var(--primary); border-radius: 5px 5px 0 0; flex: 1; position: relative; }
+        .bar::after { content: attr(data-label); position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%); font-size: 0.7rem; color: #888; }
+    </style>
+</head>
+<body>
+    <div class="sidebar"><h2>EventKonnect</h2><a href="AdminDashboard.html" style="color:white;text-decoration:none;">Dashboard</a></div>
+    <div class="main">
+        <h1>System Analytics</h1>
+        <div class="chart-box">
+            <h3>Monthly Registration Growth</h3>
+            <div class="bar-container">
+                <div class="bar" style="height: 30%" data-label="Jan"></div>
+                <div class="bar" style="height: 50%" data-label="Feb"></div>
+                <div class="bar" style="height: 85%" data-label="Mar"></div>
+                <div class="bar" style="height: 60%" data-label="Apr"></div>
+                <div class="bar" style="height: 95%" data-label="May"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

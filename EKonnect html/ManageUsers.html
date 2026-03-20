@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Users - Admin</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        :root { --primary: #FF6B35; --dark: #2C2C2C; --sidebar-w: 260px; }
+        body { font-family: 'Segoe UI', sans-serif; background: #FFF5E4; display: flex; }
+        .sidebar { width: var(--sidebar-w); background: var(--dark); height: 100vh; position: fixed; color: white; padding: 2rem 1rem; }
+        .nav-item { display: block; padding: 12px 15px; color: #ccc; text-decoration: none; border-radius: 10px; margin-bottom: 5px; }
+        .nav-item.active { background: var(--primary); color: white; }
+        .main { margin-left: var(--sidebar-w); flex-grow: 1; padding: 2rem; }
+        .user-table { width: 100%; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; }
+        .btn-action { padding: 5px 10px; border: none; border-radius: 5px; cursor: pointer; font-size: 0.8rem; }
+        .btn-block { background: #ff4444; color: white; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>EventKonnect</h2>
+        <a href="AdminDashboard.html" class="nav-item">Dashboard</a>
+        <a href="ManageUsers.html" class="nav-item active">Users</a>
+        <a href="ApproveEvents.html" class="nav-item">Approvals</a>
+        <a href="Reports.html" class="nav-item">Reports</a>
+    </div>
+    <div class="main">
+        <h1>User Management</h1>
+        <div style="margin-top: 2rem;">
+            <table class="user-table">
+                <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th>Actions</th></tr></thead>
+                <tbody>
+                    <tr><td>John Doe</td><td>john@hcollege.edu</td><td>Attendee</td><td>Verified</td><td><button class="btn-action btn-block">Block</button></td></tr>
+                    <tr><td>IT Club Admin</td><td>itclub@hcollege.edu</td><td>Organizer</td><td>Verified</td><td><button class="btn-action btn-block">Block</button></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

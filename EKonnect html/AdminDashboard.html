@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - EventKonnect</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        :root { --primary: #FF6B35; --secondary: #F7931E; --warm-bg: #FFF5E4; --dark: #2C2C2C; --sidebar-w: 260px; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--warm-bg); display: flex; }
+        /* Sidebar */
+        .sidebar { width: var(--sidebar-w); background: var(--dark); height: 100vh; position: fixed; color: white; padding: 2rem 1rem; }
+        .sidebar h2 { color: var(--primary); margin-bottom: 2rem; font-size: 1.5rem; }
+        .nav-item { display: block; padding: 12px 15px; color: #ccc; text-decoration: none; border-radius: 10px; margin-bottom: 5px; transition: 0.3s; }
+        .nav-item:hover, .nav-item.active { background: var(--primary); color: white; }
+        /* Main Content */
+        .main { margin-left: var(--sidebar-w); flex-grow: 1; padding: 2rem; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+        .card { background: white; padding: 1.5rem; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .card h3 { font-size: 0.9rem; color: #666; margin-bottom: 10px; }
+        .card .value { font-size: 2rem; font-weight: bold; color: var(--dark); }
+        .table-container { background: white; margin-top: 2rem; padding: 1.5rem; border-radius: 15px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #eee; }
+        .status { padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; }
+        .status-pending { background: #fff3e0; color: #ef6c00; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>EventKonnect</h2>
+        <a href="AdminDashboard.html" class="nav-item active">Dashboard</a>
+        <a href="ManageUsers.html" class="nav-item">Users</a>
+        <a href="ApproveEvents.html" class="nav-item">Approvals</a>
+        <a href="AllEvents.html" class="nav-item">Events</a>
+        <a href="Reports.html" class="nav-item">Reports</a>
+        <a href="Analytics.html" class="nav-item">Analytics</a>
+        <a href="Settings.html" class="nav-item">Settings</a>
+        <a href="Home.html" class="nav-item" style="margin-top: 2rem; border-top: 1px solid #444;">Logout</a>
+    </div>
+    <div class="main">
+        <div class="header">
+            <h1>Admin Overview</h1>
+            <span>Welcome, Admin User</span>
+        </div>
+        <div class="card-grid">
+            <div class="card"><h3>Total Users</h3><div class="value">1,240</div></div>
+            <div class="card"><h3>Active Events</h3><div class="value">45</div></div>
+            <div class="card"><h3>Pending Approvals</h3><div class="value" style="color: var(--primary)">12</div></div>
+            <div class="card"><h3>Tickets Scanned</h3><div class="value">856</div></div>
+        </div>
+        <div class="table-container">
+            <h3>Recent Pending Approvals</h3>
+            <table>
+                <thead><tr><th>Event Name</th><th>Organizer</th><th>Date</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr><td>Tech Symposium 2026</td><td>IT Club</td><td>Feb 20</td><td><span class="status status-pending">Pending</span></td></tr>
+                    <tr><td>Annual Sports Meet</td><td>Student Council</td><td>Mar 05</td><td><span class="status status-pending">Pending</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

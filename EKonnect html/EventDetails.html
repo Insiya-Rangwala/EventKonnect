@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Details - EventKonnect</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #FFF5E4; padding: 2rem; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 30px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .banner { background: #FF6B35; color: white; padding: 3rem; text-align: center; }
+        .content { padding: 3rem; display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
+        .map-placeholder { background: #eee; height: 200px; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #888; font-style: italic; }
+        .btn-reg { background: #FF6B35; color: white; border: none; width: 100%; padding: 15px; border-radius: 15px; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="banner">
+            <h1>Tech Symposium 2026</h1>
+            <p>February 20, 2026 | 10:00 AM onwards</p>
+        </div>
+        <div class="content">
+            <div>
+                <h3>About Event</h3>
+                <p style="color: #666; margin-top: 1rem;">Join us for the annual gathering of tech enthusiasts. This year we cover AI, Cloud Computing, and Sustainable Tech.</p>
+                <h3 style="margin-top: 2rem;">Venue & Map</h3>
+                <p style="color: #666; margin-bottom: 1rem;">Main Auditorium, Block C</p>
+                <div class="map-placeholder">[Google Maps View Integrated]</div>
+            </div>
+            <div>
+                <div style="background: #FFF5E4; padding: 1.5rem; border-radius: 20px;">
+                    <p>Remaining Seats</p>
+                    <h2 style="color: #FF6B35;">45 / 100</h2>
+                    <button class="btn-reg" onclick="alert('Registered successfully!')">Register Now</button>
+                </div>
+                <a href="AttendeeDashboard.html" style="display:block; text-align:center; margin-top:1rem; color:#888;">Back to Dashboard</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Ticket - EventKonnect</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #FFF5E4; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .ticket { background: white; width: 350px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); overflow: hidden; }
+        .header { background: #FF6B35; color: white; padding: 2rem 1rem; text-align: center; }
+        .qr-area { padding: 2rem; display: flex; flex-direction: column; align-items: center; }
+        .qr-placeholder { width: 200px; height: 200px; background: #eee; display: flex; align-items: center; justify-content: center; border: 2px dashed #ccc; font-weight: bold; }
+        .info { padding: 1.5rem; border-top: 2px dashed #f0f0f0; }
+        .row { display: flex; justify-content: space-between; margin-bottom: 10px; }
+        .label { color: #888; font-size: 0.8rem; text-transform: uppercase; }
+        .val { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="ticket">
+        <div class="header">
+            <h2 style="margin: 0;">Tech Symposium</h2>
+            <p style="margin: 5px 0 0 0; opacity: 0.8;">Feb 20, 2026 | 10:00 AM</p>
+        </div>
+        <div class="qr-area">
+            <div class="qr-placeholder">
+                <img src="/1 (1).png" alt="QR">
+            </div>
+            <p style="margin-top: 15px; font-weight: bold; color: #FF6B35;">Scan at Entry</p>
+        </div>
+        <div class="info">
+            <div class="row">
+                <span class="label">Attendee</span>
+                <span class="val">John Student</span>
+            </div>
+            <div class="row">
+                <span class="label">Seat</span>
+                <span class="val">A-12</span>
+            </div>
+            <div class="row">
+                <span class="label">Venue</span>
+                <span class="val">Main Auditorium</span>
+            </div>
+        </div>
+        <button style="width:100%; padding:15px; border:none; background:#eee; color:#666; cursor:pointer;" onclick="window.print()">Download PDF Ticket</button>
+    </div>
+</body>
+</html>
