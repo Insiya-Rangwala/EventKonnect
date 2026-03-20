@@ -19,10 +19,8 @@ const Auth = () => {
         confirmPassword: '',
         role: 'attendee',
         organizationName: '',
-        college_id: '',
-        admin_code: ''
+        college_id: ''
     });
-    const [showAdminCode, setShowAdminCode] = useState(false);
 
     const navigate = useNavigate();
     const [error, setError] = useState('');
@@ -124,8 +122,7 @@ const Auth = () => {
                 role: registerData.role || 'attendee',
                 first_name: first_name,
                 last_name: last_name,
-                organization_name: registerData.role === 'organizer' ? registerData.organizationName : '',
-                admin_code: registerData.admin_code || ''
+                organization_name: registerData.role === 'organizer' ? registerData.organizationName : ''
             };
 
             // Only append college_id if it's an attendee AND college mode is active
@@ -243,27 +240,6 @@ const Auth = () => {
                         </div>
 
                         <button className="btn btn-primary auth-submit-btn" type="submit">Sign Up</button>
-
-                        <div style={{ textAlign: 'center', marginTop: '0.5rem' }}>
-                            <button
-                                type="button"
-                                onClick={() => setShowAdminCode(!showAdminCode)}
-                                style={{ background: 'none', border: 'none', color: 'var(--primary)', fontSize: '0.8rem', cursor: 'pointer', textDecoration: 'underline' }}
-                            >
-                                {showAdminCode ? 'Hide admin code' : 'Have an admin code?'}
-                            </button>
-                            {showAdminCode && (
-                                <input
-                                    className="auth-full-input"
-                                    type="password"
-                                    name="admin_code"
-                                    value={registerData.admin_code}
-                                    onChange={handleRegisterChange}
-                                    placeholder="Enter admin secret code"
-                                    style={{ marginTop: '0.5rem' }}
-                                />
-                            )}
-                        </div>
                     </form>
                 </div>
 
