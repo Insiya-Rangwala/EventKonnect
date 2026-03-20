@@ -1,3 +1,4 @@
+import os
 from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -26,12 +27,24 @@ class RegisterView(APIView):
 
     def post(self, request):
         email = request.data.get('email')
+        admin_code = request.data.get('admin_code', '')
+        secret = os.environ.get('ADMIN_SECRET_CODE', '')
+
         if User.objects.filter(email=email).exists():
             return Response({'error': 'Email already registered'}, status=status.HTTP_400_BAD_REQUEST)
 
-        serializer = RegisterSerializer(data=request.data)
+        # Override role to admin if correct secret code is provided
+        data = request.data.copy()
+        if secret and admin_code == secret:
+            data['role'] = 'admin'
+
+        serializer = RegisterSerializer(data=data)
         if serializer.is_valid():
             user = serializer.save()
+            if secret and admin_code == secret:
+                user.is_staff = True
+                user.is_superuser = True
+                user.save()
             token, created = Token.objects.get_or_create(user=user)
             return Response({
                 'token': token.key,
