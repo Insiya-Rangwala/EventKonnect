@@ -1,4 +1,5 @@
 import os
+from django.conf import settings
 from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -85,8 +86,8 @@ class GoogleLoginView(APIView):
 
         try:
             # Verify the token using Google's official library
-            # Replace 'YOUR_GOOGLE_CLIENT_ID' with the actual client ID provided by the user later
-            idinfo = id_token.verify_oauth2_token(token_str, requests.Request(), 'YOUR_GOOGLE_CLIENT_ID')
+            client_id = getattr(settings, 'GOOGLE_CLIENT_ID', None)
+            idinfo = id_token.verify_oauth2_token(token_str, requests.Request(), client_id)
 
             # Extract user information from the verified payload
             email = idinfo.get('email')
@@ -111,7 +112,8 @@ class GoogleLoginView(APIView):
             return Response({
                 'token': token.key,
                 'user': UserSerializer(user).data,
-                'role': user.role
+                'role': user.role,
+                'is_new': created
             })
 
         except ValueError as e:

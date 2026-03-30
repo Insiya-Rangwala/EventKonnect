@@ -149,7 +149,7 @@ const Auth = () => {
         }
     };
 
-    const handleAuthSuccess = (data) => {
+    const handleAuthSuccess = (data, isGoogle = false) => {
         if (data.token) {
             localStorage.setItem('token', data.token);
             localStorage.setItem('isAuthenticated', 'true');
@@ -160,7 +160,12 @@ const Auth = () => {
             }
             const userRole = data.role || 'attendee';
             localStorage.setItem('userRole', userRole);
-            redirectByRole(userRole);
+            
+            if (isGoogle && data.is_new) {
+                navigate(`/dashboard/${userRole}/profile`, { replace: true });
+            } else {
+                redirectByRole(userRole);
+            }
         } else {
             toast.error('Authentication failed. No token received.');
         }
@@ -172,8 +177,12 @@ const Auth = () => {
                 token: credentialResponse.credential,
                 role: roleIfNew
             });
-            handleAuthSuccess(response.data);
-            toast.success('Successfully logged in with Google!');
+            handleAuthSuccess(response.data, true);
+            if (response.data.is_new) {
+                toast.success('Successfully signed up! Please complete your profile.');
+            } else {
+                toast.success('Successfully logged in with Google!');
+            }
         } catch (err) {
             console.error("Google Auth failed", err);
             toast.error('Google authentication failed securely.');

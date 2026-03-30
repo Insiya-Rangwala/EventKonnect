@@ -57,7 +57,7 @@ const ConditionalLayout = () => {
 
 function App() {
   return (
-    <GoogleOAuthProvider clientId="YOUR_ACTUAL_GOOGLE_CLIENT_ID">
+    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID || import.meta.env.VITE_CLIENT_ID || "725419525615-o48dv686fvkb2huj2bb2mvmeha6mb1oe.apps.googleusercontent.com"}>
       <ThemeProvider>
         <ToastProvider>
           <Router>

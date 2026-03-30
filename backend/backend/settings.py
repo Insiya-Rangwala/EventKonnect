@@ -143,18 +143,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.User'
 
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:5173",
-#     "http://127.0.0.1:5173",
-#     "http://localhost:5174",
-#     "http://127.0.0.1:5174",
-#     "http://localhost:5175",
-#     "http://127.0.0.1:5175",
-#     "http://localhost:3000",
-#     "http://127.0.0.1:3000",
-# ]
+# Development frontend URLs added to avoid CORS issues
 CORS_ALLOWED_ORIGINS = [
     "https://event-konnect.vercel.app",
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://localhost:5174",
+    "http://127.0.0.1:5174",
+    "http://localhost:5175",
+    "http://127.0.0.1:5175",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -181,3 +180,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_HOST_USER = 'your_email@gmail.com'
 # EMAIL_HOST_PASSWORD = 'your_app_password'
 # DEFAULT_FROM_EMAIL = 'EventKonnect <noreply@eventkonnect.com>'
+
+GOOGLE_CLIENT_ID = os.environ.get('CLIENT_ID')
+GOOGLE_CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
